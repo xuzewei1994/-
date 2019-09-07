@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+<script>
+	var oldArr = [123, {a: 1}, {a: {b: 1}}, {a: "1"}, "meili"]
+	console.log(oldArr)
+
+	function removeDuplicate(arr) {
+	  return[...(new Set(arr.map(n => JSON.stringify(n))))].map(n => JSON.parse(n))
+	}
+	console.log(removeDuplicate([123, {a: 1}, {a: {b: 1}}, {a: "1"}, {a: {b: 1}}, "meili"]))
+</script>
+</html>

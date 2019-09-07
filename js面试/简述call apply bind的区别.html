@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	call方法第一个参数是传入需要改变this的参数，如果还有参数则继续添加，理论上可以一直添加参数。
+
+	apply方法第一个参数是传入需要改变this的参数，但这个方法只能添加两个参数，如果有多个参数，则需要将这些参数放入一个数组中。
+
+	bind方法第一个参数是this的指向，从第二个参数开始是接收的参数列表。
+
+	区别在于bind方法返回值是函数以及bind接收的参数列表的使用，使用bind方法的函数的原参数会在bind方法传入的参数之后往后排。
+
+	call和apply都是对函数的直接调用，而bind方法返回的仍然是一个函数，因此后面还需要()来进行调用才可以。
+</body>
+</html>

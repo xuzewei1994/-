@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>清除浮动</title>
+	<style>
+		.clearfloat:after{
+			content: '';
+			display: block;
+			clear: both;
+			visibility: hidden;
+			height: 0;
+		}
+		.clearfloat{
+			zoom: 1;
+		}
+	</style>
+</head>
+<body>
+	<!-- 1.给父级元素设置高度 -->
+	<!-- 2.结尾处添加空div标签 -->
+	<!-- <div class="clearfloat"></div> -->
+	<!-- 3.父级元素定义overflow:hidden -->
+	<!-- 4.父级元素定义伪类 after zoom -->
+	<div class="div1 clearfloat">
+		<div class="left">Left</div>
+		<div class="right">Right</div>
+	</div>
+</body>
+</html>

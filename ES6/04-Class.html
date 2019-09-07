@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+<script>
+	class Person{
+		constructor(name,age){
+			this.name = name
+			this.age = age
+		}
+		sayName(){
+			console.log("My name is "+this.name)
+		}
+		sayAge(){
+			console.log("I am "+this.age+" years old")
+		}
+		static sayHi(){
+			console.log("Hello")
+		}
+	}
+	const person = new Person('Tom',18)
+	console.log(person)
+	person.sayName()
+	person.sayAge()
+	Person.sayHi()
+
+	class Student extends Person{
+		constructor(name,age,major){
+			super(name,age)
+			this.major = major
+		}
+		sayMajor(){
+			console.log("I'm major is "+this.major)
+		}
+	}
+	const student = new Student('Leo',25,"computer")
+	console.log(student)
+	student.sayName()
+	student.sayAge()
+	student.sayMajor()
+	Student.sayHi()
+</script>
+</html>

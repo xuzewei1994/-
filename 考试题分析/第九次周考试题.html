@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+<script>
+	/*
+	1.
+	function Person(name,age){
+		this.name = name;
+		this.age = age;
+		console.log(this);
+	}
+	var mike = Person("tom","18");
+	console.log(mike);//undefined
+	//解析：mike在这里相当于函数Person的执行结果，Person中没有return，也就表示Person的返回值是undefined
+	*/
+
+	/*
+	2.
+	function Person(name,age){
+		this.name = name;
+		this.age = age;
+		console.log(this);//Window{}
+	}
+	var person1 = new Person('tom',18);
+	Person('tom',18);//Person{name: "tom", age: 18}
+	*/
+
+	/*
+	3.
+	var User = {
+ 		count: 1,
+ 		getCount: function() {
+
+			console.log(this)//this指向user {count: 1, getCount: ƒ}
+
+	  		return this.count;//1
+ 		}
+	}
+	console.log(User.getCount()); //1
+
+	var func = User.getCount;
+
+	console.log(this.func)//return this.count;
+
+	console.log(func()); //undefined
+
+	//解析：func是被window调用的，这时getCount中this指向window，window上没有count属性，因此返回undefined
+	*/
+
+/*
+	var fun = function(){}
+	fun.prototype = {
+      	info:{
+            	name:'peter',
+           		age: 25
+        	}
+	}
+    var a = new fun();
+	var b = new fun();
+   	a.info.name = 'jack';
+  	b.info.name = 'tom';
+   	console.log(a.info.name)//tom
+
+	console.log(b.info.name)//tom
+
+	//解析：a和b修改的都是同一个属性，后边的会覆盖掉前边的值
+	*/
+
+	/*
+	function Person(color){
+  		// console.log(this)
+  		this.color = color;
+  		this.getColor = function(){
+    		console.log(this)
+    		return this.color;
+  		};
+ 		 this.setColor = function(color){
+   			console.log(this)
+    		this.color = color;
+  		};
+	}
+
+	Person("red"); //this是谁?  *window
+
+	var p = new Person("yello"); //this是谁?  *p
+
+	p.getColor(); //this是谁?  *p
+
+	var obj = {};
+	p.setColor.call(obj, "black"); //this是谁?  *obj
+
+	var test = p.setColor;
+	test(); //this是谁?  *window
+	*/
+/*
+	function fun1(){
+  		function fun2(){
+    		console.log(this); 
+  		}
+ 		fun2(); //this是谁? *window
+	}
+	fun1();
+	*/
+
+	/*
+	var p = {
+		name:"tom",
+		age:18,
+		setName:function(name){
+			this.name = name;
+		},
+		setAge:function(age){
+			this.age = age;
+		}
+	}
+	p.setName("leo")
+	console.log(p.name);//leo
+	*/
+
+	/*
+	var a = null;
+	console.log(typeof a);//object
+	*/
+
+	console.log(setInterval(function(){},1000));//1
+	console.log(setInterval(function(){},1000));//2
+</script>
+</html>

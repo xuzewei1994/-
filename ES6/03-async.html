@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+<script src="js/jquery-1.12.4.js"></script>
+<script>
+	$(function(){
+		let getDataPromise = (url) => new Promise((resolve,reject)=>{
+			$.get(url,(data)=>{
+				resolve(data)
+			})
+		})
+
+		async function getGithubData(url){
+			const data1 = await getDataPromise(url)
+			const data2 = await getDataPromise(data1.followers_url)
+			const data3 = await getDataPromise(data2[0].followers_url)
+			return data3
+		}
+
+		getGithubData('https://api.github.com/users/kuazhu')
+		.then(data=>{
+			console.log(data)
+		})
+		.catch(err=>{
+			console.log(err)
+		})
+	})
+</script>
+</html>

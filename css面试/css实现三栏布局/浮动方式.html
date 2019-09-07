@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>浮动方式</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.box{
+			height: 200px;
+		}
+		.left{
+			float: left;
+			width: 200px;
+			height: 100%;
+			background-color: blue;
+
+		}
+		.content{
+			height: 100%;
+			background-color: yellow;
+		}
+		.right{
+			float: right;
+			width: 200px;
+			height: 100%;
+			background-color: pink;
+		}
+	</style>
+</head>
+<body>
+	<!-- 左右固定，中间自适应。 -->
+	 <div class="box">
+        <div class="left"></div>
+        <div class="right"></div>
+        <!-- 中间的盒子在最后面 -->
+        <div class="content"></div>
+
+    </div>
+</body>
+</html>

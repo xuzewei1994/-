@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		/*如何居中div？*/
+		.div1{
+			border: 1px solid red;
+			background: #ccc;
+			margin: 0 auto;
+			width: 80px;
+			height: 50px;
+		}
+		/*如何居中一个浮动元素？*/
+		/**绝对定位的元素水平居中：left:50%; margin-left: 元素宽度的一半。*/
+		/**绝对定位的元素垂直居中：top:50%; margin-top: 元素宽度的一半。*/
+		.div2{
+			float: left;
+			position: absolute;
+			border: 1px solid #000;
+			background-color: black;
+			width: 100px;
+			height: 100px;
+			left: 50%;
+			top: 50%;
+			margin: -50px 0 0 -50px;
+
+		}
+		/*如何让绝对定位的div居中？*/
+		.div3{
+			position: absolute;
+			left: 0;
+			right: 0; 
+			border: 1px solid black;
+			background-color: black;
+			width: 200px;
+			height: 100px;
+			margin: 0 auto;
+			
+		}
+	</style>
+</head>
+<body>
+	<!-- 如何居中div？如何居中一个浮动元素？如何让绝对定位的div居中？ -->
+	<div class="div1"></div>
+	<div class="div2"></div>
+	<div class="div3"></div>
+</body>
+</html>

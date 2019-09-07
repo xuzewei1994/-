@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.box{
+			position: relative;
+			left: 50%;
+			margin-left: -200px;
+			width: 400px;
+			height: 200px;
+			background-color: red;
+
+		}
+		.content{
+			position: absolute;
+			width: 100px;
+			height: 100px;
+			top: 50%;
+			left: 50%;
+			/*平移：transform:  translate(水平方向移动，垂直方向移动)。*/
+			transform: translate(-50%,-50%);
+			background-color: green;
+		}
+	</style>
+</head>
+<body>
+	<!-- 宽度和高度未知 -->
+	 <div class="box">
+        <div class="content"></div>
+    </div>
+</body>
+</html>

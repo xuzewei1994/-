@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+<script>
+	function getDateType(data){
+		if(data instanceof Array){
+			return 'array'
+		}else if(data instanceof Object){
+			return 'object'
+		}
+	}
+	function deepCopy(data){
+		const type = getDateType(data)
+		let result;
+		if(type == 'array'){
+			result = []
+		}else if(type == 'object'){
+			result = {}
+		}else{
+			return data
+		}
+		for(let key in data){
+			let val = data[key]
+			let valType = getDateType(val)
+			if(valType == 'array' || valType == 'object'){
+				result[key] = deepCopy(val)
+			}else{
+				result[key] = val
+			}
+		}
+		return result
+	}
+
+function deepClone(obj){
+	var newObj = obj instanceof Array ? [] : {}
+	for(var item in obj){
+		var temple = typeof obj[item] == "object" ? deepClone(obj[item]) : obj[item]
+		newObj[item] = temple
+	}
+	return newObj
+}
+
+</script>
+</html>

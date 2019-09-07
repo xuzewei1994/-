@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<!-- 我们把一个数字倒着读和原数字相同的数字称为对称数,(例如1,121,88,8988),不考虑性能,请找出1-10000之间的对称数,要求用javascript实现 -->
+</body>
+<script>
+	// symmetry:对称
+	function symmetry(num){
+		var arr = [];
+		while(--num>10){
+			// split:把字符串分隔成数组  reverse反转 join:字符串拼接
+			var reverseNum = num.toString().split('').reverse().join('');
+			(reverseNum == num) && (arr.push(num));
+		}
+		return arr;
+	}
+	var result = symmetry(10000);
+	console.log(result);
+</script>
+</html>
