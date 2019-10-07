@@ -18,38 +18,17 @@
             'Cat','Dog'
         ]
     }
-    function getDataType(data){
-    	if(data instanceof Array){
-    		return "array"
-    	}else if(data instanceof Object){
-    		return "object"
-    	}
-    }
+   
+   function deepClone(obj){
+   		var newObj = obj instanceof Array ? [] : {}
+   		for(var item in obj) {
+   			var temple = typeof obj[item] === 'object' ? deepClone(obj[item]) : obj[item];
+   			newObj[item] = temple
+   		}
+   		return newObj;
+   }
 
-	function deepCopy(data){
-		const type = getDataType(data)
-		let result
-		if(type == 'array'){
-			result = []
-		}else if(type == 'object'){
-			result = {}
-		}else{
-			return data
-		}
-		for(let key in data){
-			let val = data[key]
-			let valType = getDataType(val)
-			if(valType == 'array' || valType == 'object'){
-				result[key] = deepCopy(val)
-			}else{
-				result[key] = val
-			}
-		}
-		return result
-	}
-
-
-	const obj1 = deepCopy(obj)
+	const obj1 = deepClone(obj)
     obj1.name = 'Peter'
     obj1.friend.name = 'Mike'
     obj1.pets.push('Tigger')

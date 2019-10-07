@@ -11,21 +11,23 @@
 	</style>
 </head>
 <body>
-
+	<!-- 在事件被触发n秒后再执行回调，如果在这n秒内又被触发，则重新计时。 -->
 </body>
 <script>
 	//函数防抖
-	var i = 0;
-	function debounce(fn,delay){
-		var timer = null;
-		return function(){
-			clearTimeout(timer);
-			timer = setTimeout(fn,delay);
+	const debounce = (fn,delay) => {
+		let timer = null;
+		return (...args)=>{
+			clearTimeout(timer)
+			timer = setTimeout(()=>{
+				fn.apply(this,args)
+			},delay)
 		}
 	}
-	window.onscroll = debounce(function(){
-		console.log(i++);
-	},300)
 
+	let i = 0
+	window.onscroll = debounce(()=>{
+		console.log(i++)
+	},2000)
 </script>
 </html>

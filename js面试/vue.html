@@ -14,6 +14,12 @@
 	function removeDuplicate(arr) {
 	  return[...(new Set(arr.map(n => JSON.stringify(n))))].map(n => JSON.parse(n))
 	}
+
 	console.log(removeDuplicate([123, {a: 1}, {a: {b: 1}}, {a: "1"}, {a: {b: 1}}, "meili"]))
+
+
+	function removeDuplicate(arr) {
+		return [...(new Set(arr.map(n => JSON.stringify(n))))].map(n => JSON.parse(n))
+	}
 </script>
 </html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>如何判断是否为数组.html</title>
+</head>
+<body>
+	
+</body>
+<script>
+	ES6加入的新的判断方法
+	if(Array.isArray(value)){
+		return true
+	}
+
+	在考虑兼容性的情况下可以使用toString的方法
+	if(!Array.isArray){
+		Array.isArray = function(arg){
+			return Object.prototype.toString.call(arg) === '[Object Array]'
+		}
+	}
+</script>
+</html>

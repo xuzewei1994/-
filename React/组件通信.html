@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>通信</title>
+</head>
+<body>
+	父子组件通信
+
+	兄弟组件通信
+	
+	跨多层级组件通信
+
+	父组件通过props传递数据给子组件，子组件通过调用父组件传递过来的函数传递数据给父组件。这种父子通信方式也就是典型的单向数据流
+
+	可以通过共同的父组件来管理状态和事件函数，比如说其中一个兄弟组件调用父组件传递过来的事件函数修改父组件的状态，然后父组件将状态传递给另一个兄弟组件。
+</body>
+<script>
+	{/*跨多层次组件通信*/}
+	{/*1、创建context*/}
+	const StateContext = React.createContext()
+	class Parent extends React.component {
+		render() {
+			return (
+					//value就是传入context中的值
+					<stateContext.provider value='xzw'>
+						<Child />
+					</stateContext.provider>
+				)
+		}
+	}
+	class Child extends React.Component {
+		render() {
+			return (
+					<ThemeContext.Consumer>
+					{/*取出道*/}
+					{context => {
+						name is {context}
+					}}
+					</ThemeContext.Consumer>
+
+				)
+		}
+	}
+</script>
+</html>

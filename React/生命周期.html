@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	挂载：当组件实例被创建并插入DOM中时，其生命周期调用顺序：
+	constructor
+	getDerivedStateFromProps
+	render
+	componentDidMount
+
+	更新：当组件的props或state发生变化时，其生命周期调用顺序：
+	getDerivedStateFromProps
+	shouldComponentUpdate
+	render
+	getSnapeshotBeforeUpdate
+	componentDidUpdate
+
+	卸载：当组件从DOM中移除
+	componentWillUnmount
+</body>
+</html>

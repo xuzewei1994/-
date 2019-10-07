@@ -11,7 +11,7 @@
 	</style>
 </head>
 <body>
-
+	<!-- 规定在一个单位时间内，只能触发一次函数，如果这个单位时间内触发多次函数，只有一次生效。 -->
 </body>
 <script>
 	//函数节流
@@ -26,8 +26,37 @@
 			}
 		}
 	}
-	window.onscroll = throttle(function(){
-		console.log(i++);
-	},1000)
+
+	const throttle = (fn,delay) => {
+		let flag = true;
+		return (...args) => {
+			if(!flag) return;
+			flag = false;
+			setTimeout(()=>{
+				fn.apply(this,args)
+				flag = true
+			},delay)
+		}
+	}
+
+	// 需要被节流的函数
+	function scrollHandler (arg) {
+	    console.log(`${arg}--被执行了`);
+	}
+	// 被节流的函数 -- 节流限制： 每 1000 毫秒执行一次
+	const throttleFunc = throttle(scrollHandler, 1000);
+	let i = 0;
+	// 模拟 页面滚动事件
+	setInterval(() => {
+	    console.log(`${i} --- 进来了，但是不知道有没有执行`);
+	    throttleFunc(i++);
+	}, 10);
+
+
+
+	// 拖拽场景：固定时间内只执行一次，防止超高频次触发位置变动
+	// 缩放场景：监控浏览器resize
+	// 动画场景：避免短时间内多次触发动画引起性能问题
+	
 </script>
 </html>

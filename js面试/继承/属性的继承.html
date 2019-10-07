@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+</body>
+<script>
+	var Person1 = function(){
+		this.name = 'Dot';
+		console.log(this)//Person2
+	}
+	var Person2 = function(){
+		this.getname = function(){
+			console.log(this.name);
+		}
+		//Person2 继承了 Person1 的属性和方法。
+		Person1.call(this);
+	}
+	var person = new Person2();
+	person.getname(); // Dot
+</script>
+</html>

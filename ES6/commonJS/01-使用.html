@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+<script>
+	// a.js
+	module.exports = {
+		a:1
+	}
+	//or
+	exports.a = 1
+
+	//b.js
+	var module = require('./a.js')
+	module.a//console.log()->1
+</script>
+</html>

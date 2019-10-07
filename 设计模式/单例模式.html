@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>单例模式.html</title>
+</head>
+<body>
+	<!-- 单例对象的核心就是保证全局只有一个对象可以访问 -->
+</body>
+<script>
+	class Singleton {
+		constructor(){}
+	}
+	Singleton.getInstance = (function(){
+		let instance
+		return function(){
+			if(!instance){
+				instance = new Singleton()
+			}
+			return instance
+		}
+	})()
+	let s1 = Singleton.getInstance()
+	let s2 = Singleton.getInstance()
+	console.log(s1 === s2)
+</script>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	路由的组成：历史  跳转  事件  
+	路由的分类： 页面路由  hash路由  H5路由
+	前端使用的路由只有两种实现方式：Hash模式：相对来说比较简单，并且兼容行较好  
+								 History模式：不会引起浏览器页面的刷新，只会更新浏览器的历史记录
+
+	两者之间的区别：
+	1.Hash模式只可更改#后面的内容，History模式可以通过API设置任意的同源URL
+	2.History模式可以通过API添加任意类型的数据到历史记录中，Hash模式只能更改哈希值，也就是字符串。
+	3.Hash模式无需后端配置，并且兼容性好，History模式在用户手动输入地址或者刷新页面的时候会发起URL请求，后端需要配置index.html页面用于匹配不到静态资源的时侯的地址跳转。
+</body>
+<script>
+	window.addEventListener('hashchange',()=>{
+		//...具体逻辑
+	})
+
+	//新增历史记录
+	history.pushStart(stateObject,title,URL)
+
+	//替换当前历史记录
+	history.replaceState(stateObject,title,URL)
+
+	//当用户做出浏览器动作时，比如点击后退按钮时会触发popState事件
+	window.addEventListener('popState',e=>{
+		console.log(e.state)
+	})
+</script>
+</html>

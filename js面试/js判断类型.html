@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+<script>
+	// Promise实现
+	class PromiseM {
+		constructor(fn){
+			this.status = 'pedding'
+			this.msg = ''
+			fn(this.resolve.bind(this),this.reject.bind(this))
+			return this
+		}
+		resolve(val){
+			this.status = 'fulfilled'
+			this.msg = val
+		}
+		reject(err){
+			this.status = 'rejected'
+			this.msg = err
+		}
+		then(fulfilled,reject){
+			if(this.status === 'fulfilled') {
+				fulfilled(this.msg)
+			}
+			if(this.status === 'rejected') {
+				reject(this.msg)
+			}
+		}
+	}
+
+	var mm=new PromiseM(function(resolve,reject){
+resolve('123');
+});
+mm.then(function(success){
+console.log(success);
+},function(){
+console.log('fail!');
+});
+</script>
+</html>

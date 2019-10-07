@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>工厂模式</title>
+</head>
+<body>
+	
+</body>
+<script>
+	class Man {
+		constructor(name){
+			this.name = name
+		}
+		alertName(){
+			alert(this.name)
+		}
+	}
+
+	class Factory {
+		static create(name){
+			return new Man(name)
+		}
+	}
+	Factory.create('tom').alertName()
+</script>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<!-- 事件委托是利用了事件冒泡原理，在父元素上监听事件，来处理子元素。 -->
+	<ul id="parent">
+		<li class="child">one</li>
+		<li class="child">two</li>
+		<li class="child">three</li>
+	</ul>
+</body>
+<script type="text/javascript">
+	//⽗元素
+	var dom = document.getElementById('parent');
+	//⽗元素绑定事件，代理⼦元素的点击事件
+	dom.onclick= function(event) {
+		var event= event || window.event;
+		var curTarget= event.target || event.srcElement;
+		if (curTarget.tagName.toLowerCase() == 'li') {
+			//事件处理
+			dom.removeChild(curTarget)
+		}
+	}
+</script>
+</html>

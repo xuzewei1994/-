@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+<script>
+	const PENDING = 'pending'
+	const RESOLVED = 'resolved'
+	const REJECTED = 'rejected'
+
+	function MyPromise(fn) {
+		const that = this //用于获取正确的 this 对象
+		that.state = PENDING //一开始 Promise 的状态应该是 pending
+		that.value = null // 变量用于保存 resolve 或者 reject 中传入的值
+		that.resolvedCallbacks = [] //用于保存 then 中的回调
+		that.rejectedCallbacks = [] //用于保存 then 中的回调
+	}
+
+	function resolve(value) {
+		if (that.state === PENDING) {
+			that.state = RESOLVED
+			that.value = value
+			that.resolvedCallbacks.map(cb => cb(that.value))
+		}
+	}
+
+	function reject(value) {
+		if (that.state === PENDING) {
+			that.state = REJECTED
+			that.value = value
+			that.rejectedCallbacks.map(cb => cb(that.value))
+		}
+	}
+
+	try {
+		fn(resolve,reject)
+	}catch(e) {
+		reject(e)
+	}
+
+	MyPromise.prototype.then = function(onFulfilled,onRejected) {
+		const that = this
+		onFulfilled = typeof onFulfilled === 'function' ? onFulfilled : v => v
+		onRejected = typeof onRejected === 'function' ? onRejected : r => {throw r}
+		if(that.state === PENDING) {
+			that.resolvedCallbacks.push(onFulfilled)
+			that.rejectedCallbacks.push(onRejected)
+		}
+		if(that.state === RESOLVED) {
+			onFulfilled(that.value)
+		}
+		if(that.state === REJECTED) {
+			onRejected(that.value)
+		}
+	}
+
+	new MyPromse((resolve,reject) => {
+		setTimeout(() => {
+			resolve(1)
+		},0)
+	})
+	.then(value => {
+		console.log(value)
+	})
+</script>
+</html>

@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+<script>
+	console.log(0.1+0.2 === 0.3)//false
+	// 这是因为JavaScript存贮数值采用的是双精度浮点数，但是js采用的浮点数标准会裁剪我们的数字，这就出现了精度丢失的问题.
+	
+	// 解决办法
+	console.log(parseFloat((0.1+0.2).toFixed(10)) === 0.3)//true
+</script>
+</html>

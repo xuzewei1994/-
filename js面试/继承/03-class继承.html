@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>class继承</title>
+</head>
+<body>
+	<!-- class实现继承的核心在于使用extends表明继承自哪个父类，并且在子类的构造函数中必须调用super。 -->
+</body>
+<script>
+	//calss的本质就是函数
+	class Parent {
+		constructor(value) {
+			this.val = value
+		}
+		getValue() {
+		    console.log(this.val)
+		}
+	}
+
+	class Child extends Parent {
+		constructor(value) {
+			super(value)//Parent.call(this,value)
+			this.val = value
+		}
+	}
+
+	let child = new Child(1)
+
+	child.getValue()//1
+	console.log(child instanceof Parent)//true
+</script>
+</html>

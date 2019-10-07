@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<!-- 1.考核题：现有需求如下，想要获取到我们的学习账号的信息，从而拿到绑定的手机号，应该怎样操作。已知通过http://127.0.0.1:3000这个地址可以拿到存有我们信息的服务器地址，得到的数据中有一个名字为kuazhu_url的地址，这个地址上存有我们需要的信息userInfo，在我们的用户信息里有一个属性phoneNum表示我们绑定的手机号。请写出你的方法（利用Promise的知识）： -->
+</body>
+<script src="js/jquery-1.12.4.js"></script>
+<script>
+	$(function(){
+		let getDatePromise = (url)=> new Promise((resolve,reject)=>{
+			$.get(url,(data)=>{
+				resolve(data)
+			})
+		})
+
+		let promise = getDatePromise('https://api.github.com/users/kuazhu')
+		promise
+		.then(data=>{
+			return getDatePromise(data.followers_url)
+		})
+		.then(data1=>{
+			return getDatePromise(data1[0].followers_url)
+		})
+		.then(data2=>{
+			console.log(data2)
+		})
+		.catch(err=>{
+			console.log(err)
+		})
+	})
+</script>
+</html>

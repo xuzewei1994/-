@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+<script>
+	/**
+	 冒泡排序   复杂度（0(n^2)）
+	 比较相邻的元素，如果第一个比第二个大，就交换他们两个位置。
+	 */
+	var arr = [45,34,56,78,12,77,33]
+	function bubbleSort(arr){
+		var len = arr.length;
+		var temp
+		for(var i=0;i<len;i++){
+			for(var j=0;j<len-1-i;j++){
+				if(arr[j] > arr[j+1]){
+					temp = arr[j+1]
+					arr[j+1] = arr[j]
+					arr[j] = temp
+				}
+			}
+		}
+		return arr
+	}
+	console.log(bubbleSort(arr))
+
+	/**
+	 选择排序
+	 */
+	function sellectionSort(arr){
+		var len = arr.length;
+		var minIndex,temp;
+		for(var i=0;i<len-1;i++){
+			minIndex = i;
+			for(var j=i+1;j<len;j++){
+				if(arr[j] = arr[minIndex]){
+					minIndex = j
+				}
+			}
+			temp = arr[i]
+			arr[i] = arr[minIndex]
+			arrp[minIndex] = temp
+		}
+		return arr
+	}
+
+	/**
+	 插入排序
+	 */
+	
+</script>
+</html>

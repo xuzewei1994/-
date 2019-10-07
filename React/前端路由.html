@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<!-- 前端路由本质就是监听URL的变化，然后匹配路由规则，显示相应页面。 -->
+
+</body>
+<script>
+	// Hash模式(Hash模式相对来说更简单，并且兼容性也更好)
+	window.addEventListener('hashChange',()=>{
+		//具体逻辑。。。
+	},false)
+
+	// History模式
+	// 新增历史记录
+	history.pushStart(stateObject,title,URL)
+	// 替换当前历史记录
+	history.replaceState(stateObject,title,URL)
+	// 当用户做出浏览器动作时，比如点击后退按钮时会触发popState事件
+	window.addEventerListener('popState',(e)=>{
+		console.log(e.state)
+	},false)
+</script>
+</html>

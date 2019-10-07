@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+<script>
+	/**
+	在ES5中可以通过Object.defineProperty来实现已有属性的监听
+	缺点：如果id不在user对象中，则不能监听id的变化
+	 */
+	Object.defineProperty('user','name',{
+		set:function(key,value){
+
+		}
+	})
+
+	/**
+	 在ES6中可以通过Proxy来实现
+	 这样即使有属性在user中不存在，通过user.id来定义也同样可以这样监听这个属性的变化.
+	 */
+
+	var user = new Proxy({},{
+		set:function(target,key,value,receiver){
+
+		}
+	})
+</script>
+</html>
